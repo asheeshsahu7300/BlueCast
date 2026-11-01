@@ -1,11 +1,7 @@
-# 📡 BlueCast (NVC-BT)
+# BlueCast (NVC-BT)
 
 <p align="center">
-  <img src="assets/live_stream_demo.png" alt="BlueCast Live Streaming over Bluetooth" width="340" />
-</p>
-
-<p align="center">
-  <strong>Ultra-Low-Latency (<40ms) Screen & Audio Mirroring over Pure Bluetooth RFCOMM for Android.</strong>
+  <strong>Ultra-Low-Latency (<40ms) Screen and Audio Mirroring over Pure Bluetooth RFCOMM for Android.</strong>
   <br />
   <em>Zero Wi-Fi. Zero Hotspot. Zero Root. 100% Native Hardware Acceleration.</em>
 </p>
@@ -21,7 +17,7 @@
 
 ---
 
-## 📖 Overview
+## Overview
 
 Streaming video over Bluetooth Classic has historically been considered impractical: standard Bluetooth RFCOMM throughput is limited to **~1.2–1.4 Mbps** at the application layer, and Android screens operate at high resolutions (1080p / 2400p) at 60 FPS.
 
@@ -33,7 +29,7 @@ Streaming video over Bluetooth Classic has historically been considered impracti
 
 ---
 
-## ⚡ Performance Benchmarks
+## Performance Benchmarks
 
 Measured live over Bluetooth RFCOMM between **OnePlus Nord CE 5G** (Broadcaster) and **Vivo 1818** (Receiver):
 
@@ -49,7 +45,7 @@ Measured live over Bluetooth RFCOMM between **OnePlus Nord CE 5G** (Broadcaster)
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
                     ┌────────────────────────────────────────────────────────┐
@@ -128,7 +124,7 @@ Measured live over Bluetooth RFCOMM between **OnePlus Nord CE 5G** (Broadcaster)
 
 ---
 
-## 🔬 Core Innovations
+## Core Innovations
 
 ### 1. Reference Integrity Protection (Zero-Tearing Engine)
 In HEVC compression, inter-predicted P-frames reference previously reconstructed macroblocks. In unconstrained networks, dropping a single P-frame causes the decoder to apply motion vectors against the wrong base picture—producing horizontal shearing, sliced icons, and visual artifacts.
@@ -154,12 +150,12 @@ vec3 minRgb = min(c, min(min(n, s), min(w, e))) - 0.06;
 vec3 maxRgb = max(c, max(max(n, s), max(w, e))) + 0.06;
 gl_FragColor = vec4(clamp(sharp, max(vec3(0.0), minRgb), min(vec3(1.0), maxRgb)), center.a);
 ```
-- **Text & UI Icons**: Contrast exceeds `0.24`, triggering full reconstruction sharpening.
-- **Flat & Dark Gradients**: Contrast remains below `0.06`, preventing noise and macroblock grid amplification.
+- **Text and UI Icons**: Contrast exceeds `0.24`, triggering full reconstruction sharpening.
+- **Flat and Dark Gradients**: Contrast remains below `0.06`, preventing noise and macroblock grid amplification.
 
 ---
 
-## 📦 Packet Framing Specification
+## Packet Framing Specification
 
 Each transmission payload is wrapped with a 16-byte fixed-size binary header:
 
@@ -188,7 +184,7 @@ Each transmission payload is wrapped with a 16-byte fixed-size binary header:
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Two Android devices (Android 10+ recommended for Broadcaster; Android 8.0+ for Receiver).
@@ -224,7 +220,7 @@ adb -s <BROADCASTER_DEVICE_ID> install -r app/build/outputs/apk/debug/app-debug.
 
 ---
 
-## 🛠️ Codebase Structure
+## Codebase Structure
 
 ```
 app/src/main/java/com/example/btscreenstream/
@@ -237,6 +233,6 @@ app/src/main/java/com/example/btscreenstream/
 
 ---
 
-## 📄 License
+## License
 
 Licensed under the **Apache License, Version 2.0**. See [LICENSE](LICENSE) for details.
