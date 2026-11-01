@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NVC-BT Screen Transmitter"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Bluetooth device for 60 FPS NVC-BT transmission, or use Wi-Fi."
+            android:textSize="13sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- NVC-BT Bluetooth Engine Card (Primary) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#E8F5E9"
+            android:padding="16dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NVC-BT: Bluetooth 60 FPS Engine (Primary)"
+                android:textStyle="bold"
+                android:textColor="#2E7D32"
+                android:textSize="15sp"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HEVC (H.265) · Intra-Refresh · 1.2 Mbps · Zero Latency Queue Shedding"
+                android:textColor="#388E3C"
+                android:textSize="12sp"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Paired Bluetooth Device:"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:layout_marginBottom="8dp"/>
+
+            <ListView
+                android:id="@+id/listPairedDevices"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:choiceMode="singleChoice"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NVC Compression &amp; Reconstruction Profile:"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:layout_marginBottom="6dp"/>
+
+            <RadioGroup
+                android:id="@+id/rgNvcProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <RadioButton
+                    android:id="@+id/rb4k"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ultra Sharp 720p (720x1600 @ 60 FPS, Low Latency) [Recommended]"
+                    android:textSize="12sp"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/rbBalanced"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Balanced NVC (576 x 1248 @ 60 FPS) [Fast]"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/rbUltra"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ultra NVC (720 x 1568 @ 60 FPS) [Max Detail]"
+                    android:textSize="12sp"/>
+
+                <RadioButton
+                    android:id="@+id/rbCompact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Compact NVC (384 x 832 @ 60 FPS) [Low Bandwidth]"
+                    android:textSize="12sp"/>
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btnStartCapture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="Start NVC-BT Stream via Bluetooth"
+                android:backgroundTint="#2E7D32"
+                android:textColor="#FFFFFF"
+                android:padding="14dp"/>
+        </LinearLayout>
+
+        <!-- High-Speed Wi-Fi Card (Secondary Option) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#F0F4F8"
+            android:padding="16dp"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wi-Fi High-Bandwidth Mode (1080p 60fps)"
+                android:textStyle="bold"
+                android:textColor="#1976D2"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/txtDiscoveryStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scanning for Receiver on local Wi-Fi..."
+                android:textColor="#444444"
+                android:textSize="12sp"
+                android:layout_marginBottom="10dp"/>
+
+            <EditText
+                android:id="@+id/editReceiverIp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Receiver IP (e.g. 192.168.43.1)"
+                android:inputType="textUri"
+                android:padding="12dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="10dp"/>
+
+            <Button
+                android:id="@+id/btnConnectWifi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stream via Wi-Fi (1080p 60fps)"
+                android:backgroundTint="#1976D2"
+                android:textColor="#FFFFFF"
+                android:padding="12dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
